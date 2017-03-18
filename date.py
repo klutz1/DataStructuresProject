@@ -7,10 +7,9 @@
 #The purpose of this program is to correctly identify the morning, afternoon, or
 #night (time of day) that will aid the user in their initial preferences.
 
-#from datetime import datetime #allows access to the .now() member function
 import datetime
+import time
 
-#TIME=str(datetime.now()) #human-readable date/time format
 WEEKDAY=datetime.datetime.today().weekday()
 
 if WEEKDAY==0:
@@ -28,10 +27,28 @@ elif WEEKDAY==5:
 else:
   DAY='Sunday'
 
-
+print 'Today is',DAY
 if WEEKDAY > 4:
   print 'It\'s the weekend!'
 else:
   print 'Long work week?'
 
-print DAY
+TIMEODAY=time.strftime("%H") #gets the hour of the day
+
+HOUR = int(TIMEODAY)
+
+
+#print message for appropriate time of day
+if HOUR >= 12:
+  if HOUR < 18:
+    print 'Good afternoon!'
+  else:
+    print 'Are you looking for something to watch tonight?'
+else:
+  if HOUR > 6:
+    print 'Good morning!'
+  else:
+    print 'Late night?'
+
+
+
